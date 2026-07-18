@@ -15,22 +15,260 @@
     <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     
-    <!-- Open Graph / WhatsApp (Configuración Oficial) -->
+    <!-- Open Graph / WhatsApp -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="✨ Mis 60 Años | MARIA EUGENIA">
     <meta property="og:description" content="Te espero para compartir una noche inolvidable, de elegancia, alegría y muchísimo ritmo.">
     <meta property="og:url" content="https://dominio-cloud.github.io/INVITACION/">
     <meta property="og:site_name" content="Invitación 60 Años">
     
-    <!-- Enlace directo a tu imagen (Asegúrate de subir la foto a GitHub con el nombre foto-compartir.png) -->
+    <!-- Enlace a la imagen alojada en tu repositorio -->
     <meta property="og:image" content="https://dominio-cloud.github.io/INVITACION/foto-compartir.png">
     <meta property="og:image:secure_url" content="https://dominio-cloud.github.io/INVITACION/foto-compartir.png">
     <meta property="og:image:type" content="image/png">
     <meta property="og:image:width" content="300">
     <meta property="og:image:height" content="300">
 
-    <!-- Estilos de Google Fonts originales de tu proyecto -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Prata&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
-    <!-- Iconos de FontAwesome -->
+    <!-- FontAwesome para los Iconos -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Estilos base de la Invitación */
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #0b0b0b;
+            color: #ffffff;
+            font-family: 'Montserrat', sans-serif;
+            text-align: center;
+        }
+        .hero {
+            position: relative;
+            padding: 60px 20px;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8));
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .hero-content h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+        .hero-content p {
+            font-family: 'Prata', serif;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+        }
+        .main-photo {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 3px solid #d4af37;
+            object-fit: cover;
+            margin: 20px auto;
+            display: block;
+        }
+        .age-badge {
+            font-size: 5rem;
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            line-height: 1;
+            margin: 10px 0;
+        }
+        .content-section {
+            padding: 40px 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .section-title {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        .poem-text {
+            font-family: 'Prata', serif;
+            font-style: italic;
+            line-height: 1.8;
+            margin: 30px 0;
+            color: #e0e0e0;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        .card i {
+            color: #d4af37;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin: 10px 0;
+        }
+        .btn-maps {
+            display: inline-block;
+            background: transparent;
+            color: #d4af37;
+            border: 1px solid #d4af37;
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: all 0.3s ease;
+        }
+        .btn-maps:hover {
+            background: #d4af37;
+            color: #0b0b0b;
+        }
+        .dress-code {
+            border-left: 3px solid #d4af37;
+            border-right: 3px solid #d4af37;
+            padding: 20px;
+            margin: 30px 0;
+            background: rgba(212, 175, 55, 0.02);
+        }
+        .btn-rsvp {
+            display: inline-block;
+            background: #25d366;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+            transition: all 0.3s ease;
+        }
+        .btn-rsvp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+        .music-control {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #d4af37;
+            color: #0b0b0b;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Audio de Fondo (Música) -->
+    <audio id="bg-music" crossorigin="anonymous" loop>
+        <source src="https://raw.githubusercontent.com/Dominio-cloud/INVITACION/72bb1256919e330f4b38a6f8eb3ff12ebd91c71a/MUSICA%20(2).mp3" type="audio/mpeg">
+        Tu navegador no soporta reproducción de audio.
+    </audio>
+
+    <!-- Botón de Control de Música -->
+    <div class="music-control" onclick="toggleMusic()">
+        <i id="music-icon" class="fas fa-music"></i>
+    </div>
+
+    <!-- Sección de Bienvenida (Hero) -->
+    <div class="hero">
+        <div class="hero-content">
+            <p>Una celebración especial</p>
+            <h1>Maria Eugenia</h1>
+
+            <!-- Foto de Portada Principal -->
+            <img class="main-photo" alt="Maria Eugenia" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlz2E8rBZjMgcoRO23hWU4qO7LQPH9osLaXLeFJWYlZfjhtmdOv2IitKrQlDCSDvfOnq_kgORwU9dyl7k2Ij6vjg4W4YPJKysGjizM-QghJIsU5NXD0bmuITjT4HuiOvoQtg1LE-SA7uHGW4yYquptislxn_iSN3jhxjrz4LKId0yYJJf4G5E4ke5b87qj/s1448/FOTO.png">
+
+            <div class="age-badge">60</div>
+            <p>Años de vida, alegría y sabor</p>
+        </div>
+    </div>
+
+    <!-- Sección de Detalles del Evento -->
+    <div class="content-section">
+        <div>
+            <p style="letter-spacing: 3px; color: #d4af37;">Invitación de Honor</p>
+            <h1 class="section-title">Maria Eugenia<br>Rodriguez</h1>
+        </div>
+
+        <div class="age-badge">60</div>
+        <div style="font-family: 'Prata'; font-size: 1.2rem; margin-bottom: 10px;">Años con Sabor y Elegancia</div>
+        <div style="letter-spacing: 2px; font-weight: 600; color: #d4af37;">17 DE AGOSTO DE 2026</div>
+
+        <p class="poem-text">
+            "Quimbara quimbara cumba quimbamba...<br>
+            La vida se celebra bailando.<br>
+            Te espero para compartir una noche inolvidable, de elegancia, alegría y muchísimo ritmo."
+        </p>
+
+        <hr style="border: 0; border-top: 1px solid rgba(212,175,55,0.3); margin: 40px 0;">
+
+        <!-- Evento 1: Ceremonia Religiosa -->
+        <div class="card">
+            <i class="fas fa-church"></i>
+            <h3>Ceremonia Religiosa</h3>
+            <p><strong>7:00 PM</strong></p>
+            <p>Parroquia La Gran Madre de Dios</p>
+            <a class="btn-maps" href="https://maps.app.goo.gl/boA2DWrQCbYJR3G58" target="_blank">Ver Ubicación</a>
+        </div>
+
+        <!-- Evento 2: Recepción -->
+        <div class="card">
+            <i class="fas fa-glass-cheers"></i>
+            <h3>Recepción</h3>
+            <p><strong>8:00 PM</strong></p>
+            <p>Cafetería Maria Bonita</p>
+            <a class="btn-maps" href="https://maps.app.goo.gl/mt5kFtN8aZ9q13d57" target="_blank">Ver Ubicación</a>
+        </div>
+
+        <!-- Código de Vestimenta -->
+        <div class="dress-code">
+            <h4 style="font-family: 'Cinzel'; color: #d4af37; margin: 0 0 10px 0; font-size: 1.2rem;">Código de Vestimenta</h4>
+            <p><strong>Vestimenta Libre</strong></p>
+            <p style="font-size: 0.9rem; color: #cccccc; margin: 5px 0 0 0;">
+                Nota: Agradecemos evitar vestir de color rojo, ya que este tono será exclusivo de nuestra celebrada para su gran noche.
+            </p>
+        </div>
+
+        <!-- Confirmación de Asistencia -->
+        <div style="margin-top: 40px; padding-bottom: 60px;">
+            <p>¿Listo para ponerle sabor a la noche? Confirma tu asistencia:</p>
+            <a class="btn-rsvp" href="https://wa.me/+522299290035?text=Hola%20Maria%20Eugenia,%20¡muchas%20felicidades!%20Confirmo%20mi%20asistencia%20a%20la%20celebración%20de%20tus%2060%20años.%20¡Allí%20nos%20vemos%20para%20disfrutar!" target="_blank">
+                <i class="fab fa-whatsapp" style="margin-right: 8px;"></i> Confirmar Asistencia
+            </a>
+        </div>
+    </div>
+
+    <!-- Script para el control de la música -->
+    <script>
+        var music = document.getElementById("bg-music");
+        var icon = document.getElementById("music-icon");
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+                icon.className = "fas fa-pause";
+            } else {
+                music.pause();
+                icon.className = "fas fa-music";
+            }
+        }
+    </script>
+
+</body>
+</html>
