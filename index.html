@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>60 Años de Maria Eugenia</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Prata&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --orquidea: #5B0E2D;
+            --oro-salsa: #D4AF37;
+            --oro-suave: #F3E5AB;
+            --oscuro: #1A050E;
+            --blanco: #FFFFFF;
+            --crema: #FFFDF9;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--oscuro);
+            background-image: radial-gradient(circle at center, #3A071C 0%, var(--oscuro) 100%);
+            color: var(--oscuro);
+            margin: 0;
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* =====================================================
+           PANTALLA INICIAL
+        ===================================================== */
+        .pantalla-inicial {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: linear-gradient(rgba(26, 5, 14, 0.82), rgba(26, 5, 14, 0.95)), 
+                        radial-gradient(circle at center, #5B0E2D, #1A050E);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .pantalla-inicial.oculta {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .contenido-inicial {
+            color: var(--crema);
+            padding: 30px;
+            animation: aparecer 1.5s ease;
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .contenido-inicial p {
+            font-size: 0.85rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--oro-suave);
+            margin: 15px 0;
+        }
+
+        .contenido-inicial h1 {
+            font-family: 'Cinzel', serif;
+            color: var(--oro-salsa);
+            font-size: 2.5rem;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        /* =====================================================
+           FOTO DE LA FESTEJADA
+        ===================================================== */
+        .foto-festejada {
+            width: 190px;
+            height: 190px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 3px solid var(--oro-salsa);
+            padding: 6px;
+            background: var(--crema);
+            box-shadow: 0 0 0 2px var(--orquidea), 0 10px 30px rgba(0,0,0,0.5);
+            margin: 25px auto;
+            display: block;
+        }
+
+        /* =====================================================
+           NÚMERO DE EDAD EN PORTADA
+        ===================================================== */
+        .numero-inicial {
+            font-family: 'Prata', serif;
+            font-size: 6rem;
+            color: var(--oro-salsa);
+            line-height: 1;
+            margin: 20px 0 30px;
+        }
+
+        /* =====================================================
+           BOTÓN ABRIR INVITACIÓN
+        ===================================================== */
+        .btn-abrir {
+            background: transparent;
+            color: var(--crema);
+            border: 1px solid var(--oro-salsa);
+            padding: 15px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 3px;
+            cursor: pointer;
+            transition: all 0.4s ease;
+        }
+
+        .btn-abrir:hover {
+            background: var(--oro-salsa);
+            color: var(--oscuro);
+            transform: scale(1.05);
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* =====================================================
+           INVITACIÓN CONTENEDOR
+        ===================================================== */
+        .invitacion-container {
+            max-width: 480px;
+            width: 100%;
+            background: var(--crema);
+            text-align: center;
+            padding: 45px 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+            position: relative;
+            border-radius: 4px;
+        }
+
+        .invitacion-container::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 1px solid var(--oro-salsa);
+            pointer-events: none;
+            opacity: 0.6;
+        }
+
+        .invitacion-container::after {
+            content: '';
+            position: absolute;
+            top: 22px; left: 22px; right: 22px; bottom: 22px;
+            border: 1px solid var(--orquidea);
+            pointer-events: none;
+            opacity: 0.15;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .header p {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: var(--orquidea);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-size: 2.4rem;
+            color: var(--orquidea);
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .edad {
+            font-size: 5rem;
+            font-family: 'Prata', serif;
+            color: var(--oro-salsa);
+            line-height: 1;
+            margin: 25px 0 10px;
+            font-weight: 400;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .ritmo-sub {
+            font-family: 'Cinzel', serif;
+            font-size: 0.95rem;
+            letter-spacing: 3px;
+            color: var(--orquidea);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .fecha-contenedor {
+            font-size: 1.25rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            border-top: 1px solid var(--oro-salsa);
+            border-bottom: 1px solid var(--oro-salsa);
+            padding: 12px 0;
+            margin: 35px auto;
+            width: 85%;
+            color: var(--orquidea);
+            font-family: 'Cinzel', serif;
+        }
+
+        .frase {
+            padding: 0 15px;
+            font-style: italic;
+            color: #4A4A4A;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            margin-bottom: 40px;
+        }
+
+        .seccion {
+            margin: 40px 0;
+            position: relative;
+        }
+
+        .seccion i {
+            font-size: 1.6rem;
+            color: var(--oro-salsa);
+            margin-bottom: 12px;
+        }
+
+        .seccion h3 {
+            color: var(--orquidea);
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .seccion p {
+            margin: 5px 0 15px;
+            font-size: 0.95rem;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: transparent;
+            color: var(--orquidea);
+            border: 1px solid var(--orquidea);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--orquidea);
+            color: var(--blanco);
+        }
+
+        /* =====================================================
+           CÓDIGO DE VESTIMENTA
+        ===================================================== */
+        .codigo-vestimenta {
+            background-color: #F9F3F5;
+            padding: 25px 20px;
+            margin: 40px 0;
+            border: 1px solid rgba(91, 14, 45, 0.1);
+        }
+
+        .codigo-vestimenta h4 {
+            margin: 0 0 10px;
+            font-family: 'Cinzel', serif;
+            color: var(--orquidea);
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+        }
+
+        .codigo-vestimenta p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: #4A4A4A;
+            line-height: 1.5;
+        }
+
+        /* =====================================================
+           WHATSAPP
+        ===================================================== */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: var(--orquidea);
+            color: var(--blanco);
+            border: 1px solid var(--orquidea);
+            padding: 14px 28px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(91, 14, 45, 0.2);
+            width: 100%;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: transparent;
+            color: var(--orquidea);
+            box-shadow: none;
+        }
+
+        /* =====================================================
+           CONTROL DE MÚSICA
+        ===================================================== */
+        .music-control {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: var(--crema);
+            border: 1px solid var(--oro-salsa);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+            z-index: 1000;
+            color: var(--orquidea);
+            transition: transform 0.2s;
+        }
+
+        .music-control:active {
+            transform: scale(0.95);
+        }
+
+        .music-pulse {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: transparent;
+            border: 1px solid var(--oro-salsa);
+            animation: pulse-ring 2s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); opacity: 1; }
+            100% { transform: scale(1.4); opacity: 0; }
+        }
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+        @media (max-width: 480px) {
+            .contenido-inicial h1 { font-size: 2rem; }
+            .foto-festejada { width: 160px; height: 160px; }
+            .numero-inicial { font-size: 5rem; }
+            .header h1 { font-size: 2rem; }
+            .edad { font-size: 4.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- =====================================================
+         MÚSICA 
+    ===================================================== -->
+    <audio id="bg-music" loop crossorigin="anonymous" style="display: none;">
+        <source src="https://github.com/Dominio-cloud/INVITACION/blob/72bb1256919e330f4b38a6f8eb3ff12ebd91c71a/MUSICA%20(2).mp3" type="audio/mpeg">
+        Tu navegador no soporta reproducción de audio.
+    </audio>
+
+    <!-- =====================================================
+         PANTALLA INICIAL
+    ===================================================== -->
+    <div class="pantalla-inicial" id="pantalla-inicial">
+        <div class="contenido-inicial">
+            <p>Una celebración especial</p>
+            <h1>Maria Eugenia</h1>
+
+            <!-- IMAGEN DE LA FESTEJADA -->
+            <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjlz2E8rBZjMgcoRO23hWU4qO7LQPH9osLaXLeFJWYlZfjhtmdOv2IitKrQlDCSDvfOnq_kgORwU9dyl7k2Ij6vjg4W4YPJKysGjizM-QghJIsU5NXD0bmuITjT4HuiOvoQtg1LE-SA7uHGW4yYquptislxn_iSN3jhxjrz4LKId0yYJJf4G5E4ke5b87qj/s1448/FOTO.png" alt="Maria Eugenia" class="foto-festejada" id="img-festejada">
+
+            <div class="numero-inicial">60</div>
+            <p>Años de vida, alegría y sabor</p>
+
+            <button class="btn-abrir" onclick="abrirInvitacion()">
+                <i class="fas fa-envelope-open-text"></i>&nbsp; ABRIR INVITACIÓN
+            </button>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         BOTÓN DE MÚSICA
+    ===================================================== -->
+    <div class="music-control" id="music-btn" onclick="toggleMusic()">
+        <div class="music-pulse" id="pulse-element" style="display: none;"></div>
+        <i class="fas fa-play" id="music-icon"></i>
+    </div>
+
+    <!-- =====================================================
+         INVITACIÓN
+    ===================================================== -->
+    <div class="invitacion-container">
+        <div class="header">
+            <p>Invitación de Honor</p>
+            <h1>Maria Eugenia<br>Rodriguez</h1>
+        </div>
+
+        <div class="edad">60</div>
+        <div class="ritmo-sub">Años con Sabor y Elegancia</div>
+        <div class="fecha-contenedor">17 DE AGOSTO DE 2026</div>
+
+        <p class="frase">
+            "Quimbara quimbara cumba quimbamba...<br>
+            La vida se celebra bailando.<br>
+            Te espero para compartir una noche inolvidable, de elegancia, alegría y muchísimo ritmo."
+        </p>
+
+        <hr style="width: 30%; border: 0; border-top: 1px solid var(--oro-salsa); margin: 30px auto; opacity: 0.5;">
+
+        <!-- CEREMONIA RELIGIOSA -->
+        <div class="seccion">
+            <i class="fas fa-church"></i>
+            <h3>Ceremonia Religiosa</h3>
+            <p><strong>7:00 PM</strong></p>
+            <p>Parroquia La Gran Madre de Dios</p>
+            <a href="https://maps.app.goo.gl/boA2DWrQCbYJR3G58" target="_blank" class="btn">Ver Ubicación</a>
+        </div>
+
+        <!-- RECEPCIÓN -->
+        <div class="seccion">
+            <i class="fas fa-glass-cheers"></i>
+            <h3>Recepción</h3>
+            <p><strong>8:00 PM</strong></p>
+            <p>Cafetería Maria Bonita</p>
+            <a href="https://maps.app.goo.gl/mt5kFtN8aZ9q13d57" target="_blank" class="btn">Ver Ubicación</a>
+        </div>
+
+        <!-- CÓDIGO DE VESTIMENTA -->
+        <div class="codigo-vestimenta">
+            <h4>Código de Vestimenta</h4>
+            <p><strong>Vestimenta Libre</strong></p>
+            <p style="color: #666; font-size: 0.85rem; font-style: italic; margin-top: 8px;">
+                Nota: Agradecemos evitar vestir de color rojo, ya que este tono será exclusivo de nuestra celebrada para su gran noche.
+            </p>
+        </div>
+
+        <!-- CONFIRMACIÓN WHATSAPP -->
+        <div class="seccion" style="margin-top: 40px; padding: 0 10px;">
+            <p style="font-size: 0.9rem; margin-bottom: 15px; font-weight: 600;">
+                ¿Listo para ponerle sabor a la noche? Confirma tu asistencia:
+            </p>
+            <a href="https://wa.me/+522299290035?text=Hola%20Maria%20Eugenia,%20¡muchas%20felicidades!%20Confirmo%20mi%20asistencia%20a%20la%20celebración%20de%20tus%2060%20años.%20¡Allí%20nos%20vemos%20para%20disfrutar!" target="_blank" class="btn-whatsapp">
+                <i class="fab fa-whatsapp"></i> Confirmar Asistencia
+            </a>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         JAVASCRIPT OPTIMIZADO
+    ===================================================== -->
+    <script>
+        const music = document.getElementById('bg-music');
+        const musicIcon = document.getElementById('music-icon');
+        const pulseElement = document.getElementById('pulse-element');
+        let isPlaying = false;
+
+        // Asegurar volumen alto y preparación de carga
+        music.volume = 1.0;
+        music.load();
+
+        /* Escuchar toques globales para despertar el motor de audio en móviles/Chrome */
+        function desbloquearAudio() {
+            if (music.paused && !isPlaying) {
+                music.play().then(() => {
+                    music.pause(); 
+                    console.log("Audio listo para activarse.");
+                }).catch(err => console.log("Permiso de audio en espera..."));
+            }
+            document.removeEventListener('click', desbloquearAudio);
+            document.removeEventListener('touchstart', desbloquearAudio);
+        }
+        document.addEventListener('click', desbloquearAudio);
+        document.addEventListener('touchstart', desbloquearAudio);
+
+        /* Acción del botón principal */
+        function abrirInvitacion() {
+            const pantallaInicial = document.getElementById('pantalla-inicial');
+            pantallaInicial.classList.add('oculta');
+            
+            // Forzar reproducción directa vinculada al clic
+            playAudio();
+        }
+
+        function playAudio() {
+            music.play()
+                .then(() => {
+                    isPlaying = true;
+                    musicIcon.className = 'fas fa-music';
+                    pulseElement.style.display = 'block';
+                })
+                .catch(error => {
+                    console.log("El navegador retiene el autoplay. El usuario puede activarlo desde el botón flotante.");
+                    // Intentar un último trigger rápido
+                    setTimeout(() => {
+                        music.play();
+                        isPlaying = true;
+                        musicIcon.className = 'fas fa-music';
+                        pulseElement.style.display = 'block';
+                    }, 100);
+                });
+        }
+
+        /* Control manual (Este botón nunca falla porque es una acción directa del usuario) */
+        function toggleMusic() {
+            if (isPlaying) {
+                music.pause();
+                musicIcon.className = 'fas fa-play';
+                pulseElement.style.display = 'none';
+                isPlaying = false;
+            } else {
+                music.play()
+                    .then(() => {
+                        isPlaying = true;
+                        musicIcon.className = 'fas fa-music';
+                        pulseElement.style.display = 'block';
+                    })
+                    .catch(err => console.error("Error al reproducir manualmente:", err));
+            }
+        }
+    </script>
+</body>
+</html>
